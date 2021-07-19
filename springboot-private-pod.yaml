@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: springboot-pod
+  namespace: default
+  labels:
+    app: springboot
+spec:
+  containers:
+  - name: springboot-container
+    image: srinadhdocker/springboot-docker-assignment:latest
+    ports:
+      - containerPort: 33333
+    resources:
+      limits:
+        cpu: "1"
+      requests:
+        cpu: "0.5"
+  imagePullSecrets:
+  - name: regcred
+
+################
+kubectl create secret docker-registry regcred --docker-server=https://index.docker.io/v1/ --docker-username=srinadhdocker --docker-password=Srinadh@94 
