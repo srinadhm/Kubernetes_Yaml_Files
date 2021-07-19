@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: springboot-pod
+  namespace: default
+  labels:
+    app: springboot
+spec:
+  containers:
+  - name: springboot-container
+    image: srinadhdocker/springboot-docker-assignment
+    ports:
+      - containerPort: 33333
+    resources:
+      limits:
+        cpu: "1"
+      requests:
+        cpu: "0.5"
